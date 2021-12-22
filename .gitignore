@@ -23,7 +23,7 @@
 .env
 *.env
 
-states.js
+constants.js
 
 npm-debug.log*
 yarn-debug.log*

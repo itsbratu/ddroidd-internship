@@ -6,8 +6,10 @@ import SubAddressField from './SubAddressField';
 import ReCAPTCHA from "react-google-recaptcha"
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { regexList } from './constants';
 
 const CAPTCHA_API_KEY = process.env.REACT_APP_CAPTCHA_API_KEY;
+const recaptchaRef = React.createRef();
 
 const InfoForm = () => {
 
@@ -24,8 +26,27 @@ const InfoForm = () => {
         validPhone : null,
         validMail : null});
 
+    const getUserInput = () => {
+        var userInputs = {
+            firstName : "" , 
+            lastName : "" , 
+            firstAddress : "" , 
+            secondAddress : "" ,
+            city : "" ,
+            state : "" ,
+            zipCode : "" ,
+            phoneNumber : "" ,
+            mailAddress : "" ,
+        };
+        ["firstName","lastName","firstAddress","secondAddress","city","state","zipCode","phoneNumber","mailAddress"].map((currentInputField) => {
+            userInputs[currentInputField] = document.getElementById(currentInputField).value;
+        });
+        return userInputs;
+    }    
+
     const validateUserInput = () => {
-        var validUserInput = {
+        const {firstName , lastName , firstAddress , secondAddress , city , state , zipCode , phoneNumber , mailAddress} = getUserInput();
+        var validInput = {
             validFirstName : true ,
             validLastName : true ,
             validAddrLine1 : true ,
@@ -36,6 +57,56 @@ const InfoForm = () => {
             validPhone : true ,
             validMail : true ,
         }
+        //testing input fields that should contain only letters
+        const onlyLettersRegex = new RegExp(regexList.onlyLetters);
+        if(!onlyLettersRegex.test(firstName)){
+            validInput.validFirstName = false;
+        }
+        if(!onlyLettersRegex.test(lastName)){
+            validInput.validLastName = false;
+        }
+        if(!onlyLettersRegex.test(city)){
+            validInput.validCity = false;
+        }
+        if(secondAddress.length > 0 && !onlyLettersRegex.test(secondAddress)){
+            validInput.validAddrLine2 = false;
+        }
+        //testing first address line
+        const addressRegex = new RegExp(regexList.address);
+        if(!addressRegex.test(firstAddress)){
+            validInput.validAddrLine1 = false;
+        }
+        //testing state
+        if(state === 'true'){
+            console.log(state);
+            validInput.validState = false;
+        }
+        //testing zip code
+        const zipCodeRegex = new RegExp(regexList.zipCode);
+        if(!zipCodeRegex.test(zipCode)){
+            validInput.validZipCode = false;
+        }
+        //testing phone number
+        const phoneRegex = new RegExp(regexList.phoneNumber);
+        if(!phoneRegex.test(phoneNumber)){
+            validInput.validPhone = false;
+        }
+        //testing mail address
+        const mailRegex = new RegExp(regexList.mailAddress);
+        if(!mailRegex.test(mailAddress)){
+            validInput.validMail = false;
+        }
+        if((!validInput.validFirstName) || (!validInput.validLastName) || (!validInput.validAddrLine1) || (!validInput.validAddrLine2) || (!validInput.validCity) || (!validInput.validState) || (!validInput.validZipCode) || (!validInput.validPhone) || (!validInput.validMail)){
+            setValidInput(validInput);
+        }else{
+            const recaptchaValue = recaptchaRef.current.getValue();
+            if(recaptchaValue.length == 0){
+                alert("Please check captcha!");
+            }else{
+                routing.push("./submit");
+            }
+        }
+
     }
 
     return(
@@ -45,8 +116,8 @@ const InfoForm = () => {
                 <div className='grid grid-areas-form-layout mt-16 pt-5 bg-athens-gray h-full w-full'>
                     <div className='grid grid-in-name'>
                         <div className='flex justify-evenly'>
-                            <NameField name = {"First name"} id = {"first_name"} userValidInput = {validInput.validFirstName}/>
-                            <NameField name = {"Last name"} id = {"last_name"} userValidInput = {validInput.validLastName}/>
+                            <NameField name = {"First name"} id = {"firstName"} userValidInput = {validInput.validFirstName}/>
+                            <NameField name = {"Last name"} id = {"lastName"} userValidInput = {validInput.validLastName}/>
                         </div>
                     </div>
                     <div className='grid grid-in-address'>
@@ -54,12 +125,12 @@ const InfoForm = () => {
                             <div className='flex items-center h-1/4 w-full px-5'>
                                 <h1 className='text-3xl font-extrabold text-prussian-blue'>Address</h1>
                             </div>
-                            <AddressField name = {"Address Line 1"} id = {"address_1"} placeholder = {"Street name & number"} mandatory = {true} userValidInput = {validInput.validAddrLine1}/>
-                            <AddressField name = {"Address Line 2"} id = {"address_2"} placeholder = {"Suite, apartament"} mandatory = {false} userValidInput = {validInput.validAddrLine2}/>
+                            <AddressField name = {"Address Line 1"} id = {"firstAddress"} placeholder = {"Street name & number"} mandatory = {true} userValidInput = {validInput.validAddrLine1}/>
+                            <AddressField name = {"Address Line 2"} id = {"secondAddress"} placeholder = {"Suite, apartament"} mandatory = {false} userValidInput = {validInput.validAddrLine2}/>
                             <div className='flex w-full h-1/4 mt-10'>
                                 <SubAddressField name = {"City"} id = {"city"} userValidInput = {validInput.validCity}/>
                                 <SubAddressField name = {"State"} id = {"state"} userValidInput = {validInput.validState}/>
-                                <SubAddressField name = {"Zip code"} id = {"zip_code"} userValidInput = {validInput.validZipCode}/>
+                                <SubAddressField name = {"Zip code"} id = {"zipCode"} userValidInput = {validInput.validZipCode}/>
                             </div>
                             <div className='w-full h-1/6 mt-5'></div>
                         </div>
@@ -69,8 +140,8 @@ const InfoForm = () => {
                             <h1 className='text-3xl font-extrabold text-prussian-blue'>Contact information</h1>
                         </div>
                         <div className='flex h-1/2 w-full'>
-                            <ContactField name = {"Phone number"} id = {"phone_number"} placeholder = {"555-5555"} userValidInput = {validInput.validPhone}/>
-                            <ContactField name = {"Email address"} id = {"email_address"} placeholder = {"john@doe.com"} userValidInput = {validInput.validMail}/>
+                            <ContactField name = {"Phone number"} id = {"phoneNumber"} placeholder = {"555-5555"} userValidInput = {validInput.validPhone}/>
+                            <ContactField name = {"Email address"} id = {"mailAddress"} placeholder = {"john@doe.com"} userValidInput = {validInput.validMail}/>
                         </div>
                     </div>
                     <div className='grid grid-in-submit'>
@@ -78,6 +149,7 @@ const InfoForm = () => {
                             <div className='flex justify-center h-full w-1/2'>
                                 <ReCAPTCHA 
                                     sitekey={`${CAPTCHA_API_KEY}`}
+                                    ref={recaptchaRef}
                                     className = 'relative top-1/4'
                                     theme='dark'
                                 />

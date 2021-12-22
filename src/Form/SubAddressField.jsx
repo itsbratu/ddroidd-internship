@@ -1,5 +1,5 @@
 import React from 'react'
-import states from './states';
+import states from './constants';
 
 const switchErrorMsg = (subAddressType) => {
     if(subAddressType === "City"){
