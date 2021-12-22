@@ -16,7 +16,7 @@ const InfoLanding = () => {
             </div>
             <div className='grid grid-in-bottom-section'>
                 <div className='flex justify-center'>
-                    <button className='w-1/4 h-1/3 text-2xl font-bold text-center bg-school-bus-yellow -mt-10 border-solid border-2 border-dove-gray shadow-general-shadow'>Join Us</button>
+                    <button className='w-1/4 h-1/3 text-2xl font-bold text-center bg-school-bus-yellow -mt-10 border-solid border-2 border-dove-gray shadow-button-shadow'>Join Us</button>
                 </div>
             </div>
         </div>

@@ -1,10 +1,13 @@
 import React from 'react';
 
+const DDROIDD_LOGO = process.env.REACT_APP_DDROIDD_LOGO;
+
 const NavBar = (props) =>{
+
     return(
         <div className='w-screen h-screen-11% bg-prussian-blue flex justify-evenly items-center'>
             <div className='w-2/5 h-2/3 flex items-center justify-center select-none'>
-                <img src = "https://raw.githubusercontent.com/Ddroidd-Limited/WinterInternship2022-Frontend/05b710e4cf5968fdb751e14f59554ec04250ac0e/src/assets/img/ddroidd_logo.svg"
+                <img src = {`${DDROIDD_LOGO}`}
                     className='pr-16'
                 ></img>
             </div>

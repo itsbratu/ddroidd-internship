@@ -12,7 +12,7 @@ module.exports = {
         "center-section" : '16%',
       },
       boxShadow : {
-        "general-shadow" : "0 25px 50px -12px rgba(0, 0, 0, 1)",
+        "button-shadow" : "0 25px 50px -12px rgba(0, 0, 0, 1)",
       },
       fontWeight : {
         light : 300,
