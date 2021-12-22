@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer'
 const Landing = () =>{
     return(
         <div className='w-screen h-screen bg-white'>
-            <NavBar displayButton = {true} />
+            <NavBar displayButton = {true} clickableLogo = {false}/>
             <InfoLanding />
             <Footer />
         </div>

@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       height : theme => ({
-        "screen-11%" : "calc(11vh)",
-        "screen-78%" : "calc(78vh)",
+        "screen-10%" : "calc(10vh)",
+        "screen-80%" : "calc(80vh)",
       }),
       inset : {
         "center-section" : '16%',
