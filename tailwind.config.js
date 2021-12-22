@@ -36,6 +36,7 @@ module.exports = {
       'dove-gray' : '#707070',
       'school-bus-yellow' : '#FFE000',
       'prussian-blue' : '#003C55',
+      'green' : '	#008000',
       'red' : '#FF0000',
     },
     gridTemplateAreas : {
