@@ -5,12 +5,20 @@ module.exports = {
   theme: {
     extend: {
       height : theme => ({
-        "screen-15%" : "calc(15vh)",
+        "screen-11%" : "calc(11vh)",
+        "screen-78%" : "calc(78vh)",
       }),
-
-    },
-    fontFamily : {
-      'general-font' : ['Open Sans']
+      inset : {
+        "center-section" : '16%',
+      },
+      fontWeight : {
+        light : 300,
+        regular : 400,
+        medium : 500,
+        semibold : 600,
+        bold : 700,
+        extrabold : 800,
+      },
     },
     colors: {
       transparent : 'transparent',
@@ -21,7 +29,20 @@ module.exports = {
       'dove-gray' : '#707070',
       'school-bus-yellow' : '#FFE000',
       'prussian-blue' : '#003C55',
+    },
+    gridTemplateAreas : {
+      'landing-layout-info' : [
+        'top-section top-section top-section',
+        'middle-section middle-section middle-section',
+        'middle-section middle-section middle-section',
+        'bottom-section bottom-section bottom-section',
+      ],
     }
   },
-  plugins: [],
+  plugins: [
+    require('@savvywombat/tailwindcss-grid-areas')
+  ],
+  variants: {
+    gridTemplateAreas: ['responsive']
+  }
 }
