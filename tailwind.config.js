@@ -8,6 +8,9 @@ module.exports = {
         "screen-10%" : "calc(10vh)",
         "screen-80%" : "calc(80vh)",
       }),
+      screens: {
+        'form-readjust' : {'max' : '1700px'},
+      },
       inset : {
         "center-section" : '16%',
       },
