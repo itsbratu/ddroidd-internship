@@ -16,10 +16,10 @@ const NavBar = (props) =>{
                 ></img>
             </div>
             <div className='w-2/5 h-2/3 bg-athens-black flex items-center justify-center select-none'>
-                <h1 className='text-5xl text-white font-bold tracking-wide'>Winter Internship</h1>
+                <h1 className='text-7xl text-white font-bold tracking-wide'>Winter Internship</h1>
             </div>
             <div className='w-2/5 h-2/3 flex justify-center items-center pl-28'>
-                {props.displayButton && <button className='w-1/4 h-1/2 bg-school-bus-yellow text-xl font-bold text-center border-solid border-2 border-dove-gray shadow-lg animation ease-in-out duration-500 transform hover:scale-110'>Join Us</button>}
+                {props.displayButton && <button className='w-1/4 h-1/2 bg-school-bus-yellow text-xl font-bold text-center border-solid border-2 border-dove-gray shadow-lg animation ease-in-out duration-500 transform hover:scale-110' onClick={() => {routing.push('./form')}}>Join Us</button>}
             </div>
         </div>
     );

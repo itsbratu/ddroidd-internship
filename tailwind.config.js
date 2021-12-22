@@ -13,6 +13,7 @@ module.exports = {
       },
       boxShadow : {
         "button-shadow" : "0 25px 50px -12px rgba(0, 0, 0, 1)",
+        "input-shadow" : "0 20px 10px -6px rgba(0, 0, 0, 0.65)"
       },
       fontWeight : {
         light : 300,
@@ -32,6 +33,7 @@ module.exports = {
       'dove-gray' : '#707070',
       'school-bus-yellow' : '#FFE000',
       'prussian-blue' : '#003C55',
+      'red' : '#FF0000',
     },
     gridTemplateAreas : {
       'landing-layout-info' : [
@@ -39,6 +41,17 @@ module.exports = {
         'middle-section middle-section middle-section',
         'middle-section middle-section middle-section',
         'bottom-section bottom-section bottom-section',
+      ],
+      'form-layout' : [
+        'name name name name',
+        'address address address address',
+        'address address address address',
+        'address address address address',
+        'address address address address',
+        'contact contact contact contact',
+        'contact contact contact contact',
+        'submit submit submit submit',
+        'submit submit submit submit',
       ],
     }
   },

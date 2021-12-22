@@ -24,7 +24,7 @@ const InfoLanding = () => {
             </div>
             <div className='grid grid-in-bottom-section'>
                 <div className='flex justify-center'>
-                    <button className='w-1/4 h-1/3 text-2xl font-bold text-center bg-school-bus-yellow -mt-10 border-solid border-2 border-dove-gray shadow-button-shadow animation ease-in-out duration-500 transform hover:scale-110' onClick = {() => {routing.push('./submit')}}>Join Us</button>
+                    <button className='w-1/4 h-1/3 text-2xl font-bold text-center bg-school-bus-yellow -mt-10 border-solid border-2 border-dove-gray shadow-button-shadow animation ease-in-out duration-500 transform hover:scale-110' onClick = {() => {routing.push('./form')}}>Join Us</button>
                 </div>
             </div>
         </div>
