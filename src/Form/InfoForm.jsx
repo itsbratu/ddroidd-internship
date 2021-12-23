@@ -69,55 +69,59 @@ const InfoForm = () => {
     }
 
     return(
-        <div className='w-2/3 h-form relative inset-x-center-section bg-athens-gray'>
-            <div className='flex flex-col items-center w-2/3 h-full relative inset-x-center-section py-20 select-none'>
-                <h1 className='text-5xl screen-2xl:text-6xl font-extrabold text-prussian-blue mt-20'>Application Form</h1>
-                <div className='grid grid-areas-form-layout mt-20 pt-5 bg-athens-gray h-full w-full'>
+        <div className='w-2/3 screen-l:h-form-l h-form-2xl relative inset-x-center-section bg-athens-gray'>
+            <div className='grid grid-areas-form-layout bg-athens-gray h-full w-2/3 relative inset-x-center-section'>
 
-                    {/* Form name input section */}
+                {/* Form title */}
+                <div className='grid grid-in-title screen-l:mt-28 screen-xl:mt-40 screen-2xl:mt-52'>
+                    <div className='flex justify-center items-start h-full w-full'>
+                        <h1 className='screen-l:text-4xl screen-xl:text-5xl screen-2xl:text-7xl font-extrabold text-prussian-blue select-none'>Application Form</h1>
+                    </div>
+                </div>
 
-                    <div className='grid grid-in-name'>
-                        <div className='flex justify-evenly'>
-                            <NameField name = {"First Name"} id = {"firstName"} userValidInput = {validInput.validFirstName}/>
-                            <NameField name = {"Last Name"} id = {"lastName"} userValidInput = {validInput.validLastName}/>
+                {/* Form name input section */}
+                <div className='grid grid-in-name '>
+                    <div className='flex justify-evenly'>
+                        <NameField name = {"First Name"} id = {"firstName"} userValidInput = {validInput.validFirstName}/>
+                        <NameField name = {"Last Name"} id = {"lastName"} userValidInput = {validInput.validLastName}/>
+                    </div>
+                </div>
+
+                {/* Form address input section */}
+
+                <div className='grid grid-in-address'>
+                    <div className='flex flex-col'>
+                        <div className='flex items-center h-1/4 w-full px-5'>
+                            <h1 className='text-3xl screen-2xl:text-5xl font-extrabold text-prussian-blue'>Address</h1>
+                        </div>
+                        <AddressField 
+                            name = {"Address Line 1"} 
+                            id = {"firstAddress"} 
+                            placeholder = {"Street name & number"} 
+                            mandatory = {true} 
+                            userValidInput = {validInput.validAddrLine1}
+                        />
+                        <AddressField 
+                            name = {"Address Line 2"} 
+                            id = {"secondAddress"} 
+                            placeholder = {"Suite, apartament"} 
+                            mandatory = {false} 
+                            userValidInput = {validInput.validAddrLine2}
+                        />
+                        <div className='flex w-full h-1/4'>
+                            <SubAddressField name = {"City"} id = {"city"} userValidInput = {validInput.validCity}/>
+                            <SubAddressField name = {"State"} id = {"state"} userValidInput = {validInput.validState}/>
+                            <SubAddressField name = {"Zip code"} id = {"zipCode"} userValidInput = {validInput.validZipCode}/>
                         </div>
                     </div>
+                </div>
 
-                    {/* Form address input section */}
+                {/* Form contact input section */}
 
-                    <div className='grid grid-in-address mt-16'>
-                        <div className='flex flex-col justify-evenly'>
-                            <div className='flex items-center h-1/4 w-full px-5'>
-                                <h1 className='text-3xl screen-2xl:text-4xl font-extrabold text-prussian-blue -mb-5'>Address</h1>
-                            </div>
-                            <AddressField 
-                                name = {"Address Line 1"} 
-                                id = {"firstAddress"} 
-                                placeholder = {"Street name & number"} 
-                                mandatory = {true} 
-                                userValidInput = {validInput.validAddrLine1}
-                            />
-                            <AddressField 
-                                name = {"Address Line 2"} 
-                                id = {"secondAddress"} 
-                                placeholder = {"Suite, apartament"} 
-                                mandatory = {false} 
-                                userValidInput = {validInput.validAddrLine2}
-                            />
-                            <div className='flex w-full h-1/4 mt-10'>
-                                <SubAddressField name = {"City"} id = {"city"} userValidInput = {validInput.validCity}/>
-                                <SubAddressField name = {"State"} id = {"state"} userValidInput = {validInput.validState}/>
-                                <SubAddressField name = {"Zip code"} id = {"zipCode"} userValidInput = {validInput.validZipCode}/>
-                            </div>
-                            <div className='w-full h-1/6 mt-5'></div>
-                        </div>
-                    </div>
-
-                    {/* Form contact input section */}
-                    
-                    <div className='grid grid-in-contact bg-athens-gray mt-16'>
-                        <div className='flex flex-col justify-center h-1/2 w-full px-5'>
-                            <h1 className='text-3xl screen-2xl:text-4xl font-extrabold text-prussian-blue mb-5'>Contact information</h1>
+                <div className='grid grid-in-contact mt-20'>
+                    <div className='flex flex-col'>
+                        <div className='flex items-center h-1/2 w-full px-5'>
+                            <h1 className='text-3xl screen-2xl:text-5xl font-extrabold text-prussian-blue mb-5'>Contact information</h1>
                         </div>
                         <div className='flex h-1/2 w-full'>
                             <ContactField 
@@ -135,28 +139,28 @@ const InfoForm = () => {
                         </div>
                     </div>
 
-                    {/* Form submit section */}
-                    
-                    <div className='grid grid-in-submit'>
-                        <div className='flex justify-between items-center px-5'>
-                            <div className='flex flex-col justify-center h-full w-1/2'>
-                                <ReCAPTCHA 
-                                    sitekey={`${CAPTCHA_API_KEY}`}
-                                    ref={recaptchaRef}
-                                    theme='dark'
-                                />
-                                {validInput.validCaptcha === false && <h1 className='w-full h-1/3 mt-4 font-extrabold text-xl text-red italic'>Please check the captcha</h1>}
-                            </div>
-                            <button 
-                                className='h-2/5 w-1/3 bg-school-bus-yellow border animation ease-in-out duration-500 transform hover:scale-110' 
-                                onClick = {() => {validateUserInput()}}
-                            >
-                                <h1 className='text-3xl font-bold text-prussian-blue'>Join Us</h1>
-                            </button>
+                </div>
+
+                {/* Form submit section */}
+
+                <div className='grid grid-in-submit screen-l:mb-28 screen-xl:mb-40 screen-2xl:mb-52'>
+                    <div className='flex justify-between items-center px-5'>
+                        <div className='flex flex-col items-center justify-center h-1/2 w-1/2'>
+                            <ReCAPTCHA 
+                                sitekey={`${CAPTCHA_API_KEY}`}
+                                ref={recaptchaRef}
+                                theme='dark'
+                            />
+                            {validInput.validCaptcha === false && <h1 className='w-full h-1/3 mt-4 font-extrabold text-xl text-red italic'>Please check the captcha</h1>}
                         </div>
+                        <button 
+                            className='h-1/4 w-1/3 bg-school-bus-yellow border animation ease-in-out duration-500 transform hover:scale-110 shadow-button-shadow' 
+                            onClick = {() => {validateUserInput()}}>
+                                <h1 className='text-3xl font-bold text-prussian-blue'>Join Us</h1>
+                        </button>
                     </div>
                 </div>
-            </div>
+                </div>
         </div>
     )
 }

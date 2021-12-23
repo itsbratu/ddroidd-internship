@@ -5,19 +5,19 @@ import propTypes from 'prop-types';
 
 const AddressField = (props) => {
     return(
-        <div className='px-5 flex flex-col w-full h-1/4 mt-10'>
+        <div className='px-5 flex flex-col w-full h-1/4'>
             <label 
                 htmlFor = {`${props.id}`} 
-                className='h-1/2 w-full text-2xl screen-2xl:text-3xl text-prussian-blue font-bold'>
+                className='h-1/3 w-full text-2xl screen-2xl:text-3xl text-prussian-blue font-bold'>
                     {props.name}:{props.mandatory && <span className='text-red'>*</span>}
             </label>
             <input 
                 id = {`${props.id}`} 
-                className={`w-full h-1/2  mt-1 px-3 text-xl screen-2xl:text-2xl font-bold shadow-input-shadow rounded-sm ${props.userValidInput && 'rounded-xl border-4 border-green'}`} 
+                className={`w-full h-1/4 px-3 text-xl screen-2xl:text-2xl font-bold shadow-input-shadow rounded-sm ${props.userValidInput && 'rounded-xl border-4 border-green'}`} 
                 placeholder={props.placeholder} 
             />
             {props.userValidInput === false && 
-                <h1 className='w-full h-1/3 text-red text-xl screen-2xl:text-3xl italic font-extrabold pt-5 px-5'>
+                <h1 className='w-full h-1/2 text-red text-xl screen-l:text-lg screen-2xl:text-3xl italic font-extrabold pt-5 px-5'>
                     Address line should contain only letters and at least one digit!
                 </h1>
             }

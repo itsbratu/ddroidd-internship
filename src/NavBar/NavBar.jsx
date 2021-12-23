@@ -19,7 +19,7 @@ const NavBar = (props) =>{
                 onClick = {() => {routing.push('./')}} />
             <div className='w-1/3 h-full bg-athens-black flex items-center justify-center select-none'>
                 <h1 className='text-7xl screen-phones:text-nav-title-phones screen-tablets:text-nav-title-tablets 
-                               screen-s:text-4xl screen-m:text-5xl screen-l:text-6xl screen-xl:text-8xl screen-2xl:text-9xl 
+                               screen-s:text-4xl screen-m:text-5xl screen-l:text-6xl screen-xl:text-7xl screen-2xl:text-9xl 
                              text-white font-semibold tracking-wide'>
                   Winter Internship
                 </h1>

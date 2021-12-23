@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer'
 
 const Form = () =>{
     return(
-        <div>
+        <div className='bg-white w-screen screen-l:h-form-page-l h-form-page-2xl'>
             <NavBar clickableLogo = {true} displayButton = {false} />
             <InfoForm />
             <Footer />

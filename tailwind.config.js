@@ -7,7 +7,10 @@ module.exports = {
       height : theme => ({
         "screen-10%" : "calc(10vh)",
         "screen-80%" : "calc(80vh)",
-        "form" : "calc(125vh)",
+        "form-page-2xl" : "calc(170vh)",
+        "form-2xl" : "calc(150vh)",
+        "form-page-l" : "calc(180vh)",
+        "form-l" : "calc(160vh)",
       }),
       screens: {
         'screen-phones' : {'min' : '320px' , 'max' : '520px'},
@@ -61,14 +64,12 @@ module.exports = {
         'bottom-section bottom-section bottom-section',
       ],
       'form-layout' : [
+        'title title title title',
         'name name name name',
         'address address address address',
         'address address address address',
         'address address address address',
-        'address address address address',
         'contact contact contact contact',
-        'contact contact contact contact',
-        'submit submit submit submit',
         'submit submit submit submit',
       ],
     }
