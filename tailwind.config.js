@@ -7,6 +7,7 @@ module.exports = {
       height : theme => ({
         "screen-10%" : "calc(10vh)",
         "screen-80%" : "calc(80vh)",
+        "form" : "calc(125vh)",
       }),
       screens: {
         'form-readjust' : {'max' : '1700px'},
@@ -15,7 +16,7 @@ module.exports = {
         "center-section" : '16%',
       },
       boxShadow : {
-        "button-shadow" : "0 25px 50px -12px rgba(0, 0, 0, 1)",
+        "button-shadow" : "0 25px 40px -16px rgba(0, 0, 0, 1)",
         "input-shadow" : "0 20px 10px -6px rgba(0, 0, 0, 0.65)"
       },
       fontWeight : {

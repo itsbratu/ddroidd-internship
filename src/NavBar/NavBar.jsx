@@ -15,18 +15,18 @@ const NavBar = (props) =>{
         <div className='w-screen h-screen-10% bg-prussian-blue flex justify-evenly items-center'>
             <div className='w-2/5 h-2/3 flex items-center justify-center select-none'>
                 <img src = {`${DdroiddLogo}`}
-                    className={`pr-16 ${props.clickableLogo && 'cursor-pointer'}`}
+                    className={`pr-64 ${props.clickableLogo && 'cursor-pointer'}`}
                     onClick = {() => {routing.push('./')}} />
             </div>
             <div className='w-2/5 h-2/3 bg-athens-black flex items-center justify-center select-none'>
                 <h1 className='text-7xl text-white font-bold tracking-wide'>Winter Internship</h1>
             </div>
-            <div className='w-2/5 h-2/3 flex justify-center items-center pl-28'>
+            <div className='w-2/5 h-2/3 flex justify-center items-center pl-40'>
                 {props.displayButton && 
                 <button 
                     className='w-1/4 h-1/2 bg-school-bus-yellow text-xl font-bold text-center border-solid border-2 border-dove-gray shadow-lg animation ease-in-out duration-500 transform hover:scale-110' 
                     onClick={() => {routing.push('./form')}}>
-                        Join Us
+                        <h1 className='text-2xl tracking-wide text-prussian-blue'>Join Us</h1>
                 </button>}
             </div>
         </div>

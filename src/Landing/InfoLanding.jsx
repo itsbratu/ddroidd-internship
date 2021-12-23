@@ -27,7 +27,7 @@ const InfoLanding = () => {
                     <button 
                         className='w-1/4 h-1/3 text-2xl font-bold text-center bg-school-bus-yellow -mt-10 border-solid border-2 border-dove-gray shadow-button-shadow animation ease-in-out duration-500 transform hover:scale-110' 
                         onClick = {() => {routing.push('./form')}}>
-                            Join Us
+                            <h1 className='text-2xl text-prussian-blue font-bold tracking-wide'>Join Us</h1>
                     </button>
                 </div>
             </div>

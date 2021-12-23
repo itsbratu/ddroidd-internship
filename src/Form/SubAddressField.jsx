@@ -31,7 +31,7 @@ const SubAddressField = (props) => {
             <div className='flex flex-col justify-center h-full w-1/3 px-5'>
                 <label 
                     htmlFor = {`${props.id}`} 
-                    className='text-2xl text-black font-bold'>
+                    className='text-2xl text-prussian-blue font-bold'>
                         {props.name}:<span className='text-red'>*</span>
                 </label>
                 <select 

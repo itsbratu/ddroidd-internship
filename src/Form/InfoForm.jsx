@@ -69,10 +69,10 @@ const InfoForm = () => {
     }
 
     return(
-        <div className='w-2/3 h-screen relative inset-x-center-section bg-athens-gray'>
+        <div className='w-2/3 h-form relative inset-x-center-section bg-athens-gray'>
             <div className='flex flex-col items-center w-2/3 h-full relative inset-x-center-section py-20 select-none'>
-                <h1 className='text-5xl font-extrabold text-prussian-blue'>Application Form</h1>
-                <div className='grid grid-areas-form-layout mt-16 pt-5 bg-athens-gray h-full w-full'>
+                <h1 className='text-5xl font-extrabold text-prussian-blue mt-20'>Application Form</h1>
+                <div className='grid grid-areas-form-layout mt-20 pt-5 bg-athens-gray h-full w-full'>
 
                     {/* Form name input section */}
 
@@ -85,10 +85,10 @@ const InfoForm = () => {
 
                     {/* Form address input section */}
 
-                    <div className='grid grid-in-address'>
+                    <div className='grid grid-in-address mt-16'>
                         <div className='flex flex-col justify-evenly'>
                             <div className='flex items-center h-1/4 w-full px-5'>
-                                <h1 className='text-3xl font-extrabold text-prussian-blue'>Address</h1>
+                                <h1 className='text-3xl font-extrabold text-prussian-blue -mb-5'>Address</h1>
                             </div>
                             <AddressField 
                                 name = {"Address Line 1"} 
@@ -115,9 +115,9 @@ const InfoForm = () => {
 
                     {/* Form contact input section */}
                     
-                    <div className='grid grid-in-contact bg-athens-gray'>
+                    <div className='grid grid-in-contact bg-athens-gray mt-16'>
                         <div className='flex flex-col justify-center h-1/2 w-full px-5'>
-                            <h1 className='text-3xl font-extrabold text-prussian-blue'>Contact information</h1>
+                            <h1 className='text-3xl font-extrabold text-prussian-blue mb-5'>Contact information</h1>
                         </div>
                         <div className='flex h-1/2 w-full'>
                             <ContactField 
@@ -148,7 +148,7 @@ const InfoForm = () => {
                                 {validInput.validCaptcha === false && <h1 className='w-full h-1/3 mt-4 font-extrabold text-xl text-red italic'>Please check the captcha</h1>}
                             </div>
                             <button 
-                                className='h-1/3 w-1/3 bg-school-bus-yellow border animation ease-in-out duration-500 transform hover:scale-110' 
+                                className='h-2/5 w-1/3 bg-school-bus-yellow border animation ease-in-out duration-500 transform hover:scale-110' 
                                 onClick = {() => {validateUserInput()}}
                             >
                                 <h1 className='text-3xl font-bold text-prussian-blue'>Join Us</h1>
