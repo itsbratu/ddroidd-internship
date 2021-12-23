@@ -71,7 +71,7 @@ const InfoForm = () => {
     return(
         <div className='w-2/3 h-form relative inset-x-center-section bg-athens-gray'>
             <div className='flex flex-col items-center w-2/3 h-full relative inset-x-center-section py-20 select-none'>
-                <h1 className='text-5xl font-extrabold text-prussian-blue mt-20'>Application Form</h1>
+                <h1 className='text-5xl screen-2xl:text-6xl font-extrabold text-prussian-blue mt-20'>Application Form</h1>
                 <div className='grid grid-areas-form-layout mt-20 pt-5 bg-athens-gray h-full w-full'>
 
                     {/* Form name input section */}
@@ -88,7 +88,7 @@ const InfoForm = () => {
                     <div className='grid grid-in-address mt-16'>
                         <div className='flex flex-col justify-evenly'>
                             <div className='flex items-center h-1/4 w-full px-5'>
-                                <h1 className='text-3xl font-extrabold text-prussian-blue -mb-5'>Address</h1>
+                                <h1 className='text-3xl screen-2xl:text-4xl font-extrabold text-prussian-blue -mb-5'>Address</h1>
                             </div>
                             <AddressField 
                                 name = {"Address Line 1"} 
@@ -117,7 +117,7 @@ const InfoForm = () => {
                     
                     <div className='grid grid-in-contact bg-athens-gray mt-16'>
                         <div className='flex flex-col justify-center h-1/2 w-full px-5'>
-                            <h1 className='text-3xl font-extrabold text-prussian-blue mb-5'>Contact information</h1>
+                            <h1 className='text-3xl screen-2xl:text-4xl font-extrabold text-prussian-blue mb-5'>Contact information</h1>
                         </div>
                         <div className='flex h-1/2 w-full'>
                             <ContactField 
