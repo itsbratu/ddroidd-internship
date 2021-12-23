@@ -7,6 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha"
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { regexList } from './constants';
+import { inputIds } from './constants';
 
 const CAPTCHA_API_KEY = process.env.REACT_APP_CAPTCHA_API_KEY;
 const recaptchaRef = React.createRef();
@@ -24,7 +25,9 @@ const InfoForm = () => {
         validState : null,
         validZipCode : null,
         validPhone : null,
-        validMail : null});
+        validMail : null,
+        validCaptcha : null
+    });
 
     const getUserInput = () => {
         var userInputs = {
@@ -38,26 +41,13 @@ const InfoForm = () => {
             phoneNumber : "" ,
             mailAddress : "" ,
         };
-        ["firstName","lastName","firstAddress","secondAddress","city","state","zipCode","phoneNumber","mailAddress"].map((currentInputField) => {
+        inputIds.map((currentInputField) => {
             userInputs[currentInputField] = document.getElementById(currentInputField).value;
         });
         return userInputs;
     }    
 
-    const validateUserInput = () => {
-        const {firstName , lastName , firstAddress , secondAddress , city , state , zipCode , phoneNumber , mailAddress} = getUserInput();
-        var validInput = {
-            validFirstName : true ,
-            validLastName : true ,
-            validAddrLine1 : true ,
-            validAddrLine2 : true ,
-            validCity : true ,
-            validState : true ,
-            validZipCode : true ,
-            validPhone : true ,
-            validMail : true ,
-        }
-        //testing input fields that should contain only letters
+    const validateOnlyLettersInput = (firstName , lastName , city , secondAddress , validInput) => {
         const onlyLettersRegex = new RegExp(regexList.onlyLetters);
         if(!onlyLettersRegex.test(firstName)){
             validInput.validFirstName = false;
@@ -71,6 +61,23 @@ const InfoForm = () => {
         if(secondAddress.length > 0 && !onlyLettersRegex.test(secondAddress)){
             validInput.validAddrLine2 = false;
         }
+    }
+
+    const validateUserInput = () => {
+        const {firstName , lastName , firstAddress , secondAddress , city , state , zipCode , phoneNumber , mailAddress} = getUserInput();
+        var validInput = {
+            validFirstName : true ,
+            validLastName : true ,
+            validAddrLine1 : true ,
+            validAddrLine2 : true ,
+            validCity : true ,
+            validState : true ,
+            validZipCode : true ,
+            validPhone : true ,
+            validMail : true ,
+            validCaptcha : true
+        }
+        validateOnlyLettersInput(firstName , lastName , city , secondAddress , validInput);
         //testing first address line
         const addressRegex = new RegExp(regexList.address);
         if(!addressRegex.test(firstAddress)){
@@ -96,17 +103,20 @@ const InfoForm = () => {
         if(!mailRegex.test(mailAddress)){
             validInput.validMail = false;
         }
-        if((!validInput.validFirstName) || (!validInput.validLastName) || (!validInput.validAddrLine1) || (!validInput.validAddrLine2) || (!validInput.validCity) || (!validInput.validState) || (!validInput.validZipCode) || (!validInput.validPhone) || (!validInput.validMail)){
-            setValidInput(validInput);
-        }else{
-            const recaptchaValue = recaptchaRef.current.getValue();
-            if(recaptchaValue.length == 0){
-                alert("Please check captcha!");
-            }else{
-                routing.push("./submit");
+        const recaptchaValue = recaptchaRef.current.getValue();
+        if(!(recaptchaValue.length > 0)){
+            validInput.validCaptcha = false;
+        }
+        var validUser = true;
+        for(const [_ , value] of Object.entries(validInput)){
+            if(value !== true){
+                validUser = false;
             }
         }
-
+        if(validUser){
+            routing.push('./submit');
+        }
+        setValidInput(validInput);
     }
 
     return(
@@ -146,15 +156,16 @@ const InfoForm = () => {
                     </div>
                     <div className='grid grid-in-submit'>
                         <div className='flex justify-between items-center px-5'>
-                            <div className='flex justify-center h-full w-1/2'>
+                            <div className='flex flex-col justify-center h-full w-1/2'>
                                 <ReCAPTCHA 
                                     sitekey={`${CAPTCHA_API_KEY}`}
                                     ref={recaptchaRef}
-                                    className = 'relative top-1/4'
+                                    className = 'relative'
                                     theme='dark'
                                 />
+                                {validInput.validCaptcha === false && <h1 className='w-full h-1/3 mt-4 font-extrabold text-xl text-red italic'>Please check the captcha</h1>}
                             </div>
-                            <button className='h-1/2 w-1/3 bg-school-bus-yellow border animation ease-in-out duration-500 transform hover:scale-110' onClick = {() => {validateUserInput()}}>
+                            <button className='h-1/3 w-1/3 bg-school-bus-yellow border animation ease-in-out duration-500 transform hover:scale-110' onClick = {() => {validateUserInput()}}>
                                 <h1 className='text-3xl font-bold text-prussian-blue'>Join Us</h1>
                             </button>
                         </div>
