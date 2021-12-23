@@ -1,3 +1,6 @@
+//Component that is displayed in the center of Submit component
+//Contains confirmation text about registration
+
 import React from 'react'
 
 const InfoSubmit = () =>{

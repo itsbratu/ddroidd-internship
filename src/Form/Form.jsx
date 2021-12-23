@@ -1,5 +1,7 @@
+//Form component that allows the user to register in the ddroidd Winter Internship
+//Contains NavBar , InfoForm and Footer as children components
+
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 
 import NavBar from '../NavBar/NavBar'
 import InfoForm from './InfoForm'

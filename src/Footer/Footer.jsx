@@ -1,9 +1,12 @@
+//Component that displays at the bottom of every page in the application
+//It contains some text and a cookie icon
+
 import React from 'react'
 
 const Footer = () => {
     return(
         <div className='w-screen h-screen-10% bg-dove-gray flex items-center justify-center select-none'>
-            <h1 className='text-4xl text-white'>Come to the dark side... we have cookies <i class="fas fa-stroopwafel"></i></h1>
+            <h1 className='text-4xl text-white'>Come to the dark side... we have cookies <i class="fas fa-stroopwafel"/></h1>
         </div>
     )
 }

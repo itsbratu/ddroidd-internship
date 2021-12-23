@@ -1,3 +1,6 @@
+//Landing component , default page that loads when we start the application
+//Contains NavBar , InfoLanding and Footer as children components
+
 import React from 'react'
 import NavBar from '../NavBar/NavBar'
 import InfoLanding from './InfoLanding'

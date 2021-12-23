@@ -1,3 +1,6 @@
+//Component that is displayed after the user successfully registered
+//Contains NavBar , InfoSubmit and Footer as children components
+
 import React from 'react'
 import NavBar from '../NavBar/NavBar';
 import InfoSubmit from './InfoSubmit';
