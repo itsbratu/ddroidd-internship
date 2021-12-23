@@ -27,6 +27,7 @@ module.exports = {
         'nav-title-tablets' : ['28px' , '32px'],
         'nav-title-phones' : ['12.5px' , '16px'],
         'info-section-button' : ['10px' , '14px'],
+        'form-title-l' : ['40px' , '48px'],
       },
       inset : {
         "center-section" : '16%',
