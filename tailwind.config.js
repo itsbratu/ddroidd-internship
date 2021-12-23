@@ -10,7 +10,20 @@ module.exports = {
         "form" : "calc(125vh)",
       }),
       screens: {
-        'form-readjust' : {'max' : '1700px'},
+        'screen-phones' : {'min' : '320px' , 'max' : '520px'},
+        'screen-tablets' : {'min' : '720px' , 'max' : '1000px'},
+        'screen-s' : {'min' : '1000px' , 'max' : '1400px'},
+        'screen-m' : {'min' : '1400px' , 'max' : '2000px'},
+        'screen-l' : {'min' : '2000px' , 'max' : '2600px'},
+        'screen-xl' : {'min' : '2600px' , 'max' : '3400px'},
+        'screen-2xl' : {'min' : '3400px' , 'max' : '4000px'},
+      },
+      fontSize : {
+        'nav-button-tablets' : ['9px' , '12px'],
+        'nav-button-phones' : ['6px' , '10px'],
+        'nav-title-tablets' : ['28px' , '32px'],
+        'nav-title-phones' : ['12.5px' , '16px'],
+        'info-section-button' : ['10px' , '14px'],
       },
       inset : {
         "center-section" : '16%',
