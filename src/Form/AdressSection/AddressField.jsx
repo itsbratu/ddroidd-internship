@@ -13,7 +13,10 @@ const AddressField = (props) => {
             </label>
             <input 
                 id = {`${props.id}`} 
-                className={`w-full h-1/3 px-3 text-xl screen-2xl:text-2xl font-bold shadow-input-shadow rounded-sm ${props.userValidInput && 'rounded-xl border-4 border-green'}`} 
+                className={`w-full h-1/3 px-3 
+                    text-xl screen-2xl:text-2xl 
+                    font-bold shadow-input-shadow rounded-sm 
+                    ${props.userValidInput && 'rounded-xl border-4 border-green'}`} 
                 placeholder={props.placeholder} 
             />
             {props.userValidInput === false && 

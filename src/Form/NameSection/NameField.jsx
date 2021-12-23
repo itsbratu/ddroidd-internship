@@ -11,7 +11,9 @@ const NameField = (props) => {
             </label>
             <input 
                 id = {`${props.id}`} 
-                className= {`h-1/4 w-full py-2 px-3 text-xl screen-2xl:text-2xl font-bold shadow-input-shadow rounded-sm ${props.userValidInput === true && 'rounded-xl border-4 border-green'}`} 
+                className= {`h-1/4 w-full py-2 px-3 text-xl 
+                            screen-2xl:text-2xl font-bold shadow-input-shadow rounded-sm 
+                            ${props.userValidInput === true && 'rounded-xl border-4 border-green'}`} 
                 placeholder={props.name} 
             />
             {props.userValidInput === false && 
