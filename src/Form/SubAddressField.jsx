@@ -1,5 +1,5 @@
 import React from 'react'
-import states from './constants';
+import {states} from './constants';
 
 const switchErrorMsg = (subAddressType) => {
     if(subAddressType === "City"){
@@ -17,12 +17,12 @@ const SubAddressField = (props) => {
     if(props.name === "State"){
         return(
             <div className='flex flex-col justify-center h-full w-1/3 px-5'>
-                <label for = {`${props.id}`} className='text-2xl text-black font-bold'>{props.name}:<span className='text-red'>*</span></label>
+                <label htmlFor = {`${props.id}`} className='text-2xl text-black font-bold'>{props.name}:<span className='text-red'>*</span></label>
                 <select id = {`${props.id}`} className= {`h-1/2 px-3 text-xl font-bold shadow-xl rounded-sm ${props.userValidInput === true && 'border-4 border-green rounded-xl'}`} placeholder={props.name}>
                     <option disabled selected value>Select state</option>
-                    {states.map((currentState , _) => {
+                    {states.map((currentState , key) => {
                         return(
-                            <option value = {currentState}>{currentState}</option>
+                            <option id = {key} value = {currentState}>{currentState}</option>
                         )
                     })}
                 </select>
@@ -32,7 +32,7 @@ const SubAddressField = (props) => {
     }else{
         return(
             <div className='flex flex-col justify-center h-full w-1/3 px-5'>
-                <label for = {`${props.id}`} className='text-2xl text-black font-bold'>{props.name}:<span className='text-red'>*</span></label>
+                <label htmlFor = {`${props.id}`} className='text-2xl text-black font-bold'>{props.name}:<span className='text-red'>*</span></label>
                 <input id = {`${props.id}`} className= {`h-1/2 px-3 text-xl font-bold shadow-input-shadow rounded-sm ${props.userValidInput === true && 'border-4 border-green rounded-xl'}`} placeholder={props.name}></input>
                 {props.userValidInput === false && switchErrorMsg(props.name)}
             </div>
