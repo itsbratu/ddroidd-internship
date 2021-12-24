@@ -25,13 +25,13 @@ const InfoLanding = () => {
             <div className='grid grid-in-bottom-section'>
                 <div className='flex justify-center'>
                     <button 
-                        className='text-2xl w-1/4 h-1/3 screen-phones:h-1/5 screen-tablets:h-1/4 
-                                   font-bold text-center bg-school-bus-yellow -mt-5 border-solid border-2 border-dove-gray 
+                        className='w-1/4 h-1/3 screen-phones:h-1/5 screen-tablets:h-1/4 
+                                   text-center bg-school-bus-yellow -mt-5 border-solid border-2 border-dove-gray 
                                    shadow-button-shadow animation ease-in-out duration-500 transform hover:scale-110' 
                         onClick = {() => {routing.push('./form')}}>
                             <h1 className='text-2xl screen-phones:text-info-section-button screen-tablets:text-xs 
                                            screen-s:text-sm screen-m:text-base screen-3xl:text-3xl screen-2xl:text-4xl 
-                                           text-prussian-blue font-bold tracking-wide'>
+                                           text-prussian-blue font-extrabold tracking-wide '>
                                     Join Us
                             </h1>
                     </button>

@@ -43,7 +43,7 @@ const SubAddressField = (props) => {
                 </label>
                 <select 
                     id = {`${props.id}`} 
-                    className= {`h-1/4 px-3 text-xl font-bold shadow-xl rounded-sm 
+                    className= {`h-1/4 px-3 text-xl font-bold shadow-select-shadow rounded-sm 
                                 ${props.userValidInput === true && 'border-4 border-green rounded-xl'}`} 
                     placeholder={props.name}>
                         <option disabled selected value>State</option>

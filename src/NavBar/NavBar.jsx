@@ -32,7 +32,7 @@ const NavBar = (props) =>{
                     onClick={() => {routing.push('./form')}}>
                         <h1 className='text-2xl screen-phones:text-nav-button-phones screen-tablets:text-nav-button-tablets 
                                        screen-s:text-xs screen-m:text-sm screen-l:text-xl screen-xl:text-3xl screen-2xl:text-4xl 
-                                       tracking-wide text-prussian-blue'>
+                                       tracking-wide text-prussian-blue font-extrabold'>
                             Join Us
                         </h1>
                 </button>}

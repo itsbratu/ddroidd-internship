@@ -34,7 +34,8 @@ module.exports = {
       },
       boxShadow : {
         "button-shadow" : "0 25px 40px -16px rgba(0, 0, 0, 1)",
-        "input-shadow" : "0 20px 10px -6px rgba(0, 0, 0, 0.65)"
+        "input-shadow" : "0 20px 10px -6px rgba(0, 0, 0, 0.65)",
+        "select-shadow" : "0 10px 25px -10px rgba(0 , 0 , 0 , 0.8)", 
       },
       fontWeight : {
         light : 300,
